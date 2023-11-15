@@ -229,12 +229,19 @@ def tts_fn(
 
 
 if __name__ == "__main__":
+    import jieba
+    jieba.add_word('北京广电实战')
+    # jieba.add_word('北京灵境赛博')
+    jieba.add_word('中国科学技术大学')
+    jieba.add_word('合成现实联合实验室')
+
     if config.webui_config.debug:
         logger.info("Enable DEBUG-LEVEL log")
         logging.basicConfig(level=logging.DEBUG)
     hps = utils.get_hparams_from_file(config.webui_config.config_path)
     # 若config.json中未指定版本则默认为最新版本
     version = hps.version if hasattr(hps, "version") else latest_version
+    print(config.webui_config.model)
     net_g = get_net_g(
         model_path=config.webui_config.model, version=version, device=device, hps=hps
     )
