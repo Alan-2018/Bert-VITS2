@@ -186,3 +186,9 @@ logs/
 Data/*
 /onnx
 /.vs
+
+
+# C-TODO
+/bert/IDEA-CCNL
+
+
